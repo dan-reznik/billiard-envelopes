@@ -1,0 +1,86 @@
+<!--## Introduction-->
+
+Let $T$ be a triangle. The Isotomic Conjugate (I.C.) of a *Circumellipse* of $T$ (an ellipse that passes thru its vertices) is a *line* which does not cross the circumcircle of $T$ [@mw].
+
+It turns out the I.C. of the EB (the $X_9$-centered circumellipse) is the Gergonne Line $L_{55}$ which passes thru $X_{514}$ and $X_{661}$ [@etc]. Under $X_9$ in [@mw] a list is provided of 57 Kimberling Centers discovered by Peter Moses which lie on $L_{55}$, listed below.
+
+Note: each appears either as (i) as a positive number followed by its isotomic conjugate in parenthesis, or (ii) as a negative number indicating its isotomic conjugate is not yet a listed Kimberling Center:
+
+514 (190), 661 (799), 693 (100), -857, 908 (34234), -914, 1577 (662), 1959 (1821), -2084, 2582 (2580), 2583 (2581), 3239 (658), -3250, 3762 (3257), 3766 (660), 3835 (4598), 3904 (655), 3912 (673), 3936 (24624), -3948, -4129, 4358 (88), 4391 (651), 4462 (27834), -4468, -4486, 4728 (4607),-4766, -4776, -4789, 4791 (4604), 4801 (4604), -4823, -4978, -5074, -5179, 6332 (653), -6381, -6590, 8045 (653), 14206 (2349), -14207, 14208 (162), -14209, 14210 (897), -14281, -14349, -14350, -14963, -18669, -18715, 24018 (823), -30565, -30566, -30804, 30806 (36101), 32679 (32680).
+
+Note: Moses has reported 30807 (36101) also lies on $L_{55}$, to be confirmed.
+
+We call the above *swans* since over the family of 3-periodics they glide over the EB's boundary. Above certain thresholds, some can become *non-monotonic* with respect to the motion of 3-periodics' vertices. The *joint* motion of swan pairs can become quite intricate, akin to a ballet [@reznik2020-ballet].
+
+Consider the line defined by $[X_i,X_k]$, where $i=1{\ldots}100$ and $k=1{\ldots}57$ indexes the isotomic cojugate of a Moses $L_{55}$ point. Over the 3-periodic family, a choice of $i,k$ defines a *family* of lines which envelopes a caustic.
+
+Click on the blue tabs above for few nice-looking caustics swept by certain center-swan pairs, organized by appearance.
+
+```{r,include=F}
+library(dplyr)
+library(stringr)
+library(purrr)
+library(fs)
+library(slickR)
+library(knitr)
+source("util.R")
+```
+
+<!--get subdirs of center swan dir -->
+```{r,include=F,cache=F}
+cs_dir <- "pics_env_center_swan"
+cs_subdirs <- dir_ls(path=cs_dir,type="dir")
+cs_subdir_titles <- cs_subdirs %>%
+  get_dir_title %>%
+  str_replace_all(fixed("_")," ") %>%
+  str_to_title
+# each contains names  
+list_subdir_files_cs <- dir_map(path=cs_dir,
+                                type="dir",
+                                # prepend url to filenames
+                                fun=function(x) sprintf("%s/%s",g_url,dir_ls(x))) %>%
+  set_names(cs_subdir_titles)
+```
+
+## Greatest Hits: Center-Swan  {.tabset .tabset-fade .tabset-pills}
+
+**note**: If carousel appears empty **click on left-right arrows** to exhibit first picture.
+
+```{r,echo=F,cache=F,results='asis',eval=T} 
+res <- pmap_chr(list(cs_subdir_titles,
+                     cs_subdirs,
+                     list_subdir_files_cs),
+                function(pill,subdir,files) knit_child('envelope_swan_child.Rmd',
+                                                       envir = environment(),
+                                                       quiet = TRUE))
+cat(res, sep = '\n')
+```
+
+## Greatest Hits: Swan-Swan  {.tabset .tabset-fade .tabset-pills}
+
+**note**: If carousel appears empty **click on left-right arrows** to exhibit first picture.
+
+```{r,include=F,cache=F}
+cs_dir <- "pics_env_swan_swan"
+cs_subdirs <- dir_ls(path=cs_dir,type="dir")
+cs_subdir_titles <- cs_subdirs %>%
+  get_dir_title %>%
+  str_replace_all(fixed("_")," ") %>%
+  str_to_title
+# each contains names  
+list_subdir_files_cs <- dir_map(path=cs_dir,
+                                type="dir",
+                                # prepend url to filenames
+                                fun=function(x) sprintf("%s/%s",g_url,dir_ls(x))) %>%
+  set_names(cs_subdir_titles)
+```
+
+```{r,echo=F,cache=F,results='asis',eval=T} 
+res <- pmap_chr(list(cs_subdir_titles,
+                     cs_subdirs,
+                     list_subdir_files_cs),
+                function(pill,subdir,files) knit_child('envelope_swan_child.Rmd',
+                                                       envir = environment(),
+                                                       quiet = TRUE))
+cat(res, sep = '\n')
+```

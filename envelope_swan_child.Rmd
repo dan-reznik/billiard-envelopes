@@ -1,0 +1,12 @@
+### `r pill` {-}
+
+```{r,echo=F}
+slickR(
+  files,
+  #height=553,
+  #width = 800,
+  width = "90%",
+  slideType = 'img-lazy') + 
+  slickR::settings(fade=T,adaptiveHeight=T,lazyLoad = 'ondemand',
+                   speed=50)
+```

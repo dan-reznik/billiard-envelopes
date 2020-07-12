@@ -1,0 +1,11 @@
+## `r sprintf("X(%d): %s",xi,xname)` {-}
+
+```{r,echo=F}
+slickR(
+    g_fnames%>%str_subset(sprintf("env_%04d_",xi)),
+    #height=553,
+    #width = 800,
+    width='90%',
+    slideType = 'img-lazy') + 
+  slickR::settings(fade=T,lazyLoad = 'ondemand',speed=20)
+```
