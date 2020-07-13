@@ -224,10 +224,12 @@ Javascript set tabset
 ```{js, echo=FALSE}
 $('body').on('shown.bs.tab', function(e) {
   $(e.target).parents('.tabset')
-             .find('.active .slick-slider')
              .each(function() {
-               this.slick.setPosition()
-              });
+                 .find('.active .slick-slider')
+                 .each(function() {
+                     this.slick.setPosition()
+                 })
+             })
 });
 ```
 
