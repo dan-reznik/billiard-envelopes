@@ -223,7 +223,7 @@ cat(unlist(res), sep = '\n')
 Javascript set tabset
 ```{js, echo=FALSE}
 $('body').on('shown.bs.tab', function(e) {
-  $(e.target)..each(function() {
+  $(e.target).each(function() {
                  .parents('.tabset')
                  .find('.active .slick-slider')
                  .each(function() {
