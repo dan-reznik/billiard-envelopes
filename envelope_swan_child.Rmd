@@ -3,7 +3,7 @@
 ```{r,echo=F}
 slickR(
   files,
-  #height=553,
+  height=600,
   #width = 800,
   width = "90%",
   slideType = 'img-lazy') + 

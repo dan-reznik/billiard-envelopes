@@ -2,7 +2,7 @@
 
 ```{r,echo=F}
 slickR(pairs %>% subset_by_list(g_fnames),
-    #height=553, width = 800
-    height="90%") + 
+    height=600,
+    width = "90%") + 
   slickR::settings(fade=T,adaptiveHeight=T,speed=100)
 ```

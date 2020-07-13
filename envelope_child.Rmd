@@ -3,7 +3,7 @@
 ```{r,echo=F}
 slickR(
     g_fnames%>%str_subset(sprintf("env_%04d_",xi)),
-    #height=553,
+    height=600,
     #width = 800,
     width='90%',
     slideType = 'img-lazy') + 
