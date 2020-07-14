@@ -223,6 +223,7 @@ res <- lapply(c("Envelopes"), function(sec) {
 cat(unlist(res), sep = '\n')
 ```
 
+<!--
 Javascript set tabset
 ```{js, echo=FALSE}
 $('body').on('shown.bs.tab', function(e) {
@@ -235,7 +236,7 @@ $('body').on('shown.bs.tab', function(e) {
              })
 });
 ```
-
+-->
 
 ***
 `r if (is_html_output()) '# References'`

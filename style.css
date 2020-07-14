@@ -38,13 +38,13 @@ object-fit: contain;
 }
 
 .col-md-9 {
-  width:80%;
+  width:75%;
 }
 
 #TOC {
   position: fixed;
   left: 10px;
-  width:200px;
-  max-width:20%;
+  /* width:200px; */
+  max-width:15%;
   overflow:auto;
 }
