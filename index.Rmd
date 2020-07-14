@@ -198,7 +198,7 @@ cat(res, sep = '\n')
 # List of Videos
 
 ```{r,include=F,message=F,cache=F}
-googlesheets4::gs4_deauth()
+# googlesheets4::gs4_deauth()
 sheets_id <- Sys.getenv("sheet_id")
 df_videos <- sheets_read(sheets_id,sheet="videos") %>%
     # read_csv("Elliptic Billiards Videos.csv") %>%
