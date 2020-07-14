@@ -4,6 +4,8 @@ author: Dan Reznik
 date: March, 2020
 output:
     bookdown::html_document2:
+      includes:
+        before_body: header.html
       theme: united
       css: style.css
       toc_depth: 2
@@ -196,6 +198,7 @@ cat(res, sep = '\n')
 # List of Videos
 
 ```{r,include=F,message=F,cache=F}
+googlesheets4::gs4_deauth()
 sheets_id <- Sys.getenv("sheet_id")
 df_videos <- sheets_read(sheets_id,sheet="videos") %>%
     # read_csv("Elliptic Billiards Videos.csv") %>%
@@ -219,20 +222,6 @@ res <- lapply(c("Envelopes"), function(sec) {
   })
 cat(unlist(res), sep = '\n')
 ```
-
-Javascript set tabset
-```{js, echo=FALSE}
-$('body').on('shown.bs.tab', function(e) {
-  $(e.target).each(function() {
-                 .parents('.tabset')
-                 .find('.active .slick-slider')
-                 .each(function() {
-                     this.slick.setPosition()
-                 })
-             })
-});
-```
-
 
 ***
 `r if (is_html_output()) '# References'`
